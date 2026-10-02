@@ -10,3 +10,4 @@ Core Java, built up from how the language runs through to concurrency and the JV
 | 2026-09-28 | Encapsulation & Access Modifiers | [2026-09-28-encapsulation-access-modifiers.md](./2026-09-28-encapsulation-access-modifiers.md) |
 | 2026-09-29 | Inheritance | [2026-09-29-inheritance.md](./2026-09-29-inheritance.md) |
 | 2026-09-30 | Polymorphism | [2026-09-30-polymorphism.md](./2026-09-30-polymorphism.md) |
+| 2026-10-02 | Abstraction: Abstract Classes & Interfaces | [2026-10-01-abstraction-interfaces.md](./2026-10-01-abstraction-interfaces.md) |
