@@ -172,3 +172,12 @@ Rule:
 The method uses object data → create an object.
 The method uses only its inputs → static.
 Never add static just to silence the error. If the method touches an instance field, it won't compile.
+
+
+Two valid fixes for a static method that needs an instance field:
+
+// Fix 1: make the method non-static, and call it through an object
+int getBalance() { return balance; }            // used as: acct.getBalance()
+
+// Fix 2: keep it static, but give it an object to read from
+static int getBalance(Account acct) { return acct.balance; }
