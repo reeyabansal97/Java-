@@ -9,8 +9,6 @@
 
 ## What problem does encapsulation solve?
 
-Take yesterday's `BankAccount`, where the fields had no access modifier:
-
 ```java
 BankAccount acc = new BankAccount("Reeya", 1000);
 acc.balance = -50000;   // nothing stops this
@@ -48,7 +46,7 @@ public class BankAccount {
 
 Now `acc.balance = -50000;` doesn't compile. The only way to change the balance is `withdraw()`, which enforces the rule. The object **protects its own validity**.
 
-(Money as `double` is kept here only for readability. As in Day 5's backend read, real money code should use `BigDecimal`.)
+(Money as `double` is kept here only for readability. Real money code should use `BigDecimal`.)
 
 ## The four access levels
 
@@ -80,14 +78,14 @@ This is barely better than a public field: anyone can still set any value. Real 
 
 ## Immutability: the strongest form of encapsulation
 
-An **immutable** object can't change after it's created. You already know one: `String` (DSA Day 3). To make your own:
+An **immutable** object can't change after it's created. You already know one: `String`. To make your own:
 
 1. Make all fields `private final`.
 2. Provide no setters.
 3. Make the class `final` so no subclass can add mutable behavior.
 4. Don't leak mutable internals (see the pitfall below).
 
-Why bother? Immutable objects are automatically **thread-safe** (nothing can change, so nothing can race), and they're safe as `HashMap` keys (DSA Day 8: a key that changes breaks the map).
+Why bother? Immutable objects are automatically **thread-safe** (nothing can change, so nothing can race), and they're safe as `HashMap` keys (a key that changes breaks the map).
 
 Since Java 16, `record` gives you this in one line:
 
@@ -95,7 +93,7 @@ Since Java 16, `record` gives you this in one line:
 public record Point(int x, int y) {}
 ```
 
-This generates private final fields, a constructor, getters (`x()`, `y()`), and correct `equals()`, `hashCode()`, and `toString()`. That also solves the `Point` bug from today's DSA read.
+This generates private final fields, a constructor, getters (`x()`, `y()`), and correct `equals()`, `hashCode()`, and `toString()`. 
 
 ## A subtle leak: returning a mutable internal object
 
