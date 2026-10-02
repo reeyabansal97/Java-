@@ -117,3 +117,58 @@ Bad use: making everything static just to avoid creating objects. That turns you
 - A static method isn't called on any object, so there's no `this` to read instance fields from.
 - It depends only on its input character, not on any object's state.
 - You called an instance method without an object; create an object first, or make the method static if it doesn't need object state.
+
+Case 1: the method needs object data → create an object
+public class BankAccount {
+    int balance = 0;                    // instance field: belongs to each object
+
+    void deposit(int amt) {             // instance method: uses balance
+        balance += amt;
+    }
+
+    public static void main(String[] args) {
+        deposit(100);                   // ❌ error: non-static method
+                                        //    cannot be referenced from a static context
+    }
+}
+
+deposit changes balance, and balance belongs to a particular account. When main calls deposit(100), Java asks "whose balance?" and there is no answer.
+
+Fix: create an object, then call the method through it.
+
+public static void main(String[] args) {
+    BankAccount a = new BankAccount();
+    a.deposit(100);                     // ✅ now it's a's balance
+    System.out.println(a.balance);      // 100
+}
+
+Tempting but wrong fix: make deposit static.
+
+static void deposit(int amt) {
+    balance += amt;                     // ❌ still an error: balance needs an object
+}
+
+That moves the error inside the method. A static method has no object, so it can't touch balance.
+
+Case 2: the method needs only its parameters → make it static
+public class Util {
+    static boolean isVowel(char c) {    // uses only its parameter
+        return "aeiou".indexOf(c) >= 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isVowel('a'));   // ✅ no object needed
+    }
+}
+
+isVowel reads nothing from any object. Its answer depends only on c. Making it static is right, and that's why it works as a utility method, like Math.max(3, 5).
+
+How to decide
+Question	If yes	If no
+Does the method read or write an instance field, or use this?	needs an object, so keep it non-static and call it through an object	can be static
+
+Rule:
+
+The method uses object data → create an object.
+The method uses only its inputs → static.
+Never add static just to silence the error. If the method touches an instance field, it won't compile.
