@@ -13,3 +13,4 @@ Core Java, built up from how the language runs through to concurrency and the JV
 | 7 | 2026-10-01 | Abstraction: Abstract Classes & Interfaces | [2026-10-01-abstraction-interfaces.md](./2026-10-01-abstraction-interfaces.md) |
 | 8 | 2026-10-03 | Exception Handling | [2026-10-03-exception-handling.md](./2026-10-03-exception-handling.md) |
 | 9 | 2026-10-05 | Comparable vs Comparator | [2026-10-05-comparable-vs-comparator.md](./2026-10-05-comparable-vs-comparator.md) |
+| 10 | 2026-10-06 | The Collections Framework: Choosing the Right Collection | [2026-10-06-collections-framework.md](./2026-10-06-collections-framework.md) |
