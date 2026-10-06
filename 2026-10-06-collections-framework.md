@@ -19,7 +19,7 @@ Map (separate hierarchy) → key → value pairs, unique keys
 
 `Map` is **not** a `Collection`. It's its own interface, because it stores pairs rather than single elements.
 
-These are all **interfaces** (Java Day 7). You declare variables with the interface type and choose an implementation, which is polymorphism (Java Day 6):
+These are all **interfaces** . You declare variables with the interface type and choose an implementation, which is polymorphism :
 
 ```java
 List<String> names = new ArrayList<>();
@@ -60,8 +60,8 @@ A `HashSet` is actually a `HashMap` underneath, using only its keys. So the thre
 |---|---|---|---|
 | Ordering | None (don't rely on it) | Insertion order | Sorted |
 | `add` / `get` / `contains` | O(1) average | O(1) average | O(log n) |
-| Built on | Hash table (DSA Day 8) | Hash table + linked list | Red-black tree (balanced BST) |
-| Needs | `equals` + `hashCode` | `equals` + `hashCode` | `Comparable` or a `Comparator` (Java Day 9) |
+| Built on | Hash table  | Hash table + linked list | Red-black tree (balanced BST) |
+| Needs | `equals` + `hashCode` | `equals` + `hashCode` | `Comparable` or a `Comparator` |
 
 **Default to `HashMap` / `HashSet`.** Switch to:
 - `LinkedHashMap` when output order should match insertion order. (It can also be configured for access order, which turns it into a simple LRU cache, the eviction policy from backend Day 6.)
