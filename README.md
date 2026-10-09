@@ -15,3 +15,4 @@ Core Java, built up from how the language runs through to concurrency and the JV
 | 9 | 2026-10-05 | Comparable vs Comparator | [2026-10-05-comparable-vs-comparator.md](./2026-10-05-comparable-vs-comparator.md) |
 | 10 | 2026-10-06 | The Collections Framework: Choosing the Right Collection | [2026-10-06-collections-framework.md](./2026-10-06-collections-framework.md) |
 | 11 | 2026-10-07 | Generics | [2026-10-07-generics.md](./2026-10-07-generics.md) |
+| 12 | 2026-10-08 | Lambdas & Functional Interfaces | [2026-10-08-lambdas-functional-interfaces.md](./2026-10-08-lambdas-functional-interfaces.md) |
